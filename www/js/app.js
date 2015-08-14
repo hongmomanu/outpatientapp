@@ -19,10 +19,65 @@ angular.module('starter', ['ionic'])
 })
 
 .controller('appCtrl', function($scope, $interval,$timeout) {
+      var socket=null;
+
+      console.log('appCtrl');
+      var websocketInit=function(){
+
+        var url=localStorage.serverurl;
+        var area=localStorage.area;
+        if(!url||url==""){
+          //Ext.Msg.alert('提示','服务地址为空');
+          return ;
+        }
+        if(!area||area==""){
+          //Ext.Msg.alert('提示','诊区为空');
+          return ;
+        }
+        //url=url?"ws://"+url.split("://")[1].split(":")[0]+":3001/":"ws://localhost:3001/";
+        url=url.replace(/(:\d+)/g,":3001");
+        url=url.replace("http","ws");
+        socket = new WebSocket(url);
+
+        socket.onmessage = function(event) {
+          var data=JSON.parse(event.data);
+
+        };
+        socket.onclose = function(event) {
+
+          $timeout(function(){
+            websocketInit()
+          },3000)
+
+        };
+
+        socket.onopen = function() {
+
+          socket.send(JSON.stringify({
+            type:"mainscreen",
+            content: localStorage.area
+          }));
+        };
+
+      }
 
 
 
-      $scope.data1 ={title:"诊室1",data:[
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*$scope.data1 ={title:"诊室1",data:[
         {name:"jack",value:"sss"},
         {name:"jack",value:"sss"},
         {name:"jack",value:"sss"}
@@ -38,7 +93,7 @@ angular.module('starter', ['ionic'])
         {name:"jack",value:"sss"}
       ]};
 
-
+*/
       /*$timeout( function() {
 
         //$scope.data1.data.push({name:"jackww",value:"sss"})
