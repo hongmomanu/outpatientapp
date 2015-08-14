@@ -2,7 +2,18 @@
  * Created by jack on 15-8-14.
  */
 angular.module('app.controllers')
+    .run(function($rootScope){
+        //var hello = testFactory.Hello();
+        console.log("hello");
+        console.log($rootScope);
+        $rootScope.$on('resourceChange', function (event, val) {
+            val.configmodal.show();
+            //alert("1111");
+        });
+    })
     .controller('initWebSocket', function($scope, $interval,$timeout, $ionicModal) {
+
+        console.log("initWebSocket");
         /*$scope.socket=null;
         $scope.configdata=localStorage.configdata?JSON.parse(localStorage.configdata):{};
 
@@ -23,7 +34,7 @@ angular.module('app.controllers')
         };*/
 
 
-        $scope.websocketInit=function(){
+        /*$scope.websocketInit=function(){
 
             var url=$scope.configdata.serverurl;
             var areanum=$scope.configdata.areanum;
@@ -63,7 +74,7 @@ angular.module('app.controllers')
                 }));
             };
 
-        };
+        };*/
 
         //$scope.websocketInit();
 
