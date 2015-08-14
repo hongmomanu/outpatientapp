@@ -60,6 +60,7 @@ angular.module('app.controllers')
 
 
             }
+            //init websocket;
             websocketInit();
         });
     })
