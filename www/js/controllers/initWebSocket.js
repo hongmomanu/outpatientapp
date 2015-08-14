@@ -37,26 +37,17 @@ angular.module('app.controllers')
 
                     $timeout(function(){
                         if(res.type=="bigscreendata"){
-
                             for(var i=0;i<res.data.length;i++){
                                 $scope["data"+(i+1)]=res.data[i];
-                                //myscope.data1=res.data[i];
                             }
-
                         }
-
-                    },20);
-
-
-
+                    },0);
 
                 };
                 socket.onclose = function(event) {
-
                     $timeout(function(){
                         websocketInit();
                     },3000);
-
                 };
 
                 socket.onopen = function() {
