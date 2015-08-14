@@ -1,11 +1,11 @@
 /* Empty. Add your own CSS if you like */
 .myComponent {
-    background-color:yellow !important;
+    background-color:darkblue !important;
     height: 100%;
 }
 
 .myButton {
-    background-color:yellowgreen !important;
+    background-color:beige !important;
     width: 100%;
     height: 100%;
 }
@@ -14,6 +14,9 @@
     height: 100%;
     background-color :lightskyblue;
 
+}
+ .item-content {
+    background-color: lightskyblue !important;
 }
 .mygrid{
     background-color :lightskyblue;
