@@ -25,6 +25,8 @@ angular.module('app.controllers')
         };
 
 
+
+
         /*$scope.data1 ={title:"诊室1",data:[
          {name:"jack",value:"sss"},
          {name:"jack",value:"sss"},

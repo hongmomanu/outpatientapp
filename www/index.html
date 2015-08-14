@@ -53,9 +53,19 @@
             </div>
             <div class="col  mygrid">
                 <button class="button myButton">{{data2.title}}</button>
+                <ion-list class="myList">
+                    <ion-item ng-repeat="item in data2.data">
+                        {{item.name}}
+                    </ion-item>
+                </ion-list>
             </div>
             <div class="col  mygrid">
                 <button class="button myButton">{{data3.title}}</button>
+                <ion-list class="myList">
+                    <ion-item ng-repeat="item in data3.data">
+                        {{item.name}}
+                    </ion-item>
+                </ion-list>
             </div>
             <div class="col  mygrid">
                 <button class="button myButton"></button>
