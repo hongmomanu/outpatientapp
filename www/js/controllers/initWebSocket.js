@@ -6,8 +6,9 @@ angular.module('app.controllers')
         //var hello = testFactory.Hello();
         console.log("hello");
         console.log($rootScope);
-        $rootScope.$on('resourceChange', function (event, val) {
+        $rootScope.$on('initWebSocket', function (event, val) {
             val.configmodal.show();
+
             //alert("1111");
         });
     })

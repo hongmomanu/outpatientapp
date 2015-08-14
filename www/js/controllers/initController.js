@@ -12,7 +12,7 @@ angular.module('app.controllers')
             scope: $scope
         }).then(function(modal) {
             $scope.configmodal = modal;
-            $rootScope.$broadcast('resourceChange', $scope);
+            $rootScope.$broadcast('initWebSocket', $scope);
 
         });
 
