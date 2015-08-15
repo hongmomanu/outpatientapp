@@ -19,6 +19,7 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
+
     <script src="js/controllers/mainController.js"></script>
     <script src="js/controllers/initController.js"></script>
     <script src="js/controllers/initWebSocket.js"></script>
@@ -28,6 +29,7 @@
     <script src="js/services/mainService.js"></script>
 
     <script src="js/app.js"></script>
+
 </head>
 
 
@@ -35,7 +37,7 @@
 
 <ion-pane>
     <ion-header-bar class="bar-stable">
-        <h1 class="title">{{configdata.areaname}}</h1>
+        <h1 class="title myTitle">{{configdata.areaname}}</h1>
         <button class="button button-icon icon ion-android-menu"
                 ng-click="configmodal.show()"
                 side="right" >
@@ -45,9 +47,9 @@
         <div class="row">
             <div class="col  mygrid">
                 <button class="button myButton">{{data1.title}}</button>
-                <div ng-class="listitem">
+                <div >
                     <ion-list class="myList">
-                        <ion-item ng-repeat="item in data1.data">
+                        <ion-item ng-repeat="item in data1.data" ng-class="'listitem'">
                             {{item.name}}
                         </ion-item>
                     </ion-list>
@@ -56,36 +58,83 @@
             </div>
             <div class="col  mygrid">
                 <button class="button myButton">{{data2.title}}</button>
+                <div >
                 <ion-list class="myList" >
-                    <ion-item  ng-repeat="item in data2.data" ng-class="listitem">
+                    <ion-item  ng-repeat="item in data2.data" ng-class="'listitem'">
                         {{item.name}}
                     </ion-item>
                 </ion-list>
+                </div>
             </div>
             <div class="col  mygrid">
                 <button class="button myButton">{{data3.title}}</button>
-                <ion-list class="myList">
-                    <ion-item ng-repeat="item in data3.data">
+                <div><ion-list class="myList">
+                    <ion-item ng-repeat="item in data3.data" ng-class="'listitem'">
                         {{item.name}}
                     </ion-item>
-                </ion-list>
+                </ion-list></div>
+
             </div>
             <div class="col  mygrid">
-                <button class="button myButton"></button>
+                <button class="button myButton">{{data4.title}}</button>
+                <div>
+                    <ion-list class="myList">
+                        <ion-item ng-repeat="item in data4.data" ng-class="'listitem'">
+                            {{item.name}}
+                        </ion-item>
+                    </ion-list>
+
+                </div>
+
             </div>
         </div>
         <div class="row">
             <div class="col  mygrid">
-                <button class="button myButton"></button>
+                <button class="button myButton">{{data5.title}}</button>
+                <div>
+                    <ion-list class="myList">
+                        <ion-item ng-repeat="item in data5.data" ng-class="'listitem'">
+                            {{item.name}}
+                        </ion-item>
+                    </ion-list>
+
+                </div>
+
             </div>
             <div class="col  mygrid">
-                <button class="button myButton"></button>
+                <button class="button myButton">{{data6.title}}</button>
+                <div>
+                    <ion-list class="myList">
+                        <ion-item ng-repeat="item in data6.data" ng-class="'listitem'">
+                            {{item.name}}
+                        </ion-item>
+                    </ion-list>
+
+                </div>
+
             </div>
             <div class="col  mygrid">
-                <button class="button myButton"></button>
+                <button class="button myButton">{{data7.title}}</button>
+                <div>
+                    <ion-list class="myList">
+                        <ion-item ng-repeat="item in data7.data" ng-class="'listitem'">
+                            {{item.name}}
+                        </ion-item>
+                    </ion-list>
+                </div>
+
             </div>
             <div class="col  mygrid">
-                <button class="button myButton"></button>
+                <button class="button myButton">{{data8.title}}</button>
+                <div>
+                    <ion-list class="myList">
+                        <ion-item ng-repeat="item in data8.data" ng-class="'listitem'">
+                            {{item.name}}
+                        </ion-item>
+                    </ion-list>
+
+                </div>
+
             </div>
         </div>
     </ion-content>

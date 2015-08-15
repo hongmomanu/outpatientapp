@@ -33,7 +33,7 @@ angular.module('app.controllers')
                 socket.onmessage = function(event) {
                     var res=JSON.parse(event.data);
 
-                    console.log(res);
+                    //console.log(res);
 
                     $timeout(function(){
                         if(res.type=="bigscreendata"){

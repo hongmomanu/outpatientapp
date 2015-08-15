@@ -1,13 +1,17 @@
 /* Empty. Add your own CSS if you like */
 .myComponent {
-    background-color:darkblue !important;
+    background-color:darkblue ;
     height: 100%;
 }
 
 .myButton {
-    background-color:beige !important;
+    background-color:#CCFFFF ;
+    font-size: xx-large;
     width: 100%;
     height: 100%;
+}
+.myTitle{
+    font-size: xx-large !important;
 }
 .myList{
     width: 100%;
@@ -16,7 +20,7 @@
 
 }
  .item-content {
-    background-color: lightskyblue !important;
+    background-color: lightskyblue ;
 }
 .mygrid{
     background-color :lightskyblue;
@@ -25,7 +29,7 @@
 
 .col{
     /*background-color:white !important;*/
-    border:thin solid black;
+    border:thin solid #CCFFFF;
     text-align:center !important;
 }
 .scroll{
@@ -48,6 +52,7 @@
 
 .listitem {
     background-color :lightskyblue;
+    font-size: xx-large;
 }
 
 .row{
