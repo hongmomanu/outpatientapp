@@ -40,6 +40,9 @@ angular.module('app.controllers')
                             for(var i=0;i<res.data.length;i++){
                                 $scope["data"+(i+1)]=res.data[i];
                             }
+                        }else if(res.type=="callpatient"){
+                            $scope.makeSpeak(res.data);
+
                         }
                     },0);
 

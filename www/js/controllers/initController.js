@@ -24,36 +24,13 @@ angular.module('app.controllers')
 
         };
 
+        $scope.makeSpeak=function(data){
+          console.log(data);
+        };
 
 
 
-        /*$scope.data1 ={title:"诊室1",data:[
-         {name:"jack",value:"sss"},
-         {name:"jack",value:"sss"},
-         {name:"jack",value:"sss"}
-         ]};
-         $scope.data2 ={title:"诊室2",data:[
-         {name:"jack",value:"sss"},
-         {name:"jack",value:"sss"},
-         {name:"jack",value:"sss"}
-         ]};
-         $scope.data3 ={title:"诊室3",data:[
-         {name:"jack",value:"sss"},
-         {name:"jack",value:"sss"},
-         {name:"jack",value:"sss"}
-         ]};
 
-         */
-        /*$timeout( function() {
-
-         //$scope.data1.data.push({name:"jackww",value:"sss"})
-         $scope.data1={title:"诊室33",data:[
-         {name:"jack",value:"sss"},
-         {name:"jack",value:"sss"},
-         {name:"jack",value:"sss"}
-         ]};
-
-         }, 5000);*/
 
 
     });
