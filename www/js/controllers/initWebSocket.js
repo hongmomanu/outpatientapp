@@ -41,7 +41,14 @@ angular.module('app.controllers')
                                 $scope["data"+(i+1)]=res.data[i];
                             }
                         }else if(res.type=="callpatient"){
+
                             $scope.makeSpeak(res.data);
+
+                        }else if(res.type=="changeroom"){
+                            $scope.configdata.areanum=res.data.newno;
+                            $scope.configdata.areaname=res.data.newname;
+                            localStorage.configdata=JSON.stringify(configdata);
+                            window.location.reload();
 
                         }
                     },0);
