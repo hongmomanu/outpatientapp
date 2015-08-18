@@ -16,7 +16,8 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
-    "cordova-plugin-device"
+    "cordova-plugin-device",
+    "com.rjfun.cordova.plugin.iflyspeech"
   ],
   "cordovaPlatforms": []
 }

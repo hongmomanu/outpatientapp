@@ -36,7 +36,7 @@
 <body ng-app="starter" ng-controller="initController">
 
 <ion-pane>
-    <ion-header-bar class="bar-stable">
+    <ion-header-bar class="bar-stable bar bar-positive" align-title="center" >
         <h1 class="title myTitle">{{configdata.areaname}}</h1>
         <button class="button button-icon icon ion-android-menu"
                 ng-click="configmodal.show()"
@@ -49,7 +49,7 @@
                 <button class="button myButton">{{data1.title}}</button>
 
                 <div class="scrolldiv">
-                    <ion-scroll class="ion-list-viewport">
+                    <ion-scroll  zooming="true" class="ion-list-viewport">
                         <ion-list >
                             <ion-item ng-repeat="item in data1.data" ng-class="'listitem'">
                                 {{item.name}}
