@@ -103,13 +103,10 @@ angular.module('app.controllers')
 
                     $timeout(function () {
                         $scope.showcallmsg(item);
-
-                    }, 1000);
+                    }, 500);
                 }, 3500)
 
-
                 $scope.playvoice(text);
-
 
             } else {
                 $scope.isplaying = false;
