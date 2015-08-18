@@ -2,7 +2,7 @@
  * Created by jack on 15-8-14.
  */
 angular.module('app.controllers')
-    .controller('initController', function($scope, $interval,$timeout, $ionicModal,$rootScope) {
+    .controller('initController', function($scope, $interval,$timeout, $ionicModal,$rootScope,$ionicLoading) {
         if(!localStorage.totaltimes)localStorage.totaltimes=1;
         $scope.socket=null;
         $scope.speaktimes=0;
@@ -57,11 +57,15 @@ angular.module('app.controllers')
                 setTimeout(function(){
                     if($scope.speaktimes>=localStorage.totaltimes){
                         $scope.speaktimes=0;
-                        delete $scope.playlist[index];
+                        delete $scope.playlist[$scope.callingindex];
+
                         $scope.callingindex++;
+                        $ionicLoading.hide();
+                        $interval.cancel($scope.timer);
                         $scope.makevoiceanddisplay();
                     }else{
                         //tipvoice.removeEventListener('ended',voiceEnd,false);
+
                         $scope.playvoice(text);
                     }
                 },10000);
@@ -69,19 +73,45 @@ angular.module('app.controllers')
         } ;
 
 
+        $scope.showcallmsg=function(item){
+            $ionicLoading.show({
+                template: '<div style="font-size: 60px;vertical-align: middle;text-align: center;">'+'<a style="font-weight: bold">'+item.hzxh+'</a>'
+                +'<a style="font-weight: bold">'+item.hzxm+'</a>'
+                +'<a style="font-weight: bold">'+item.zsmc+'</a>'
+                +'</div>',
+                animation: 'fade-in',
+                maxWidth: 200,
+                showBackdrop: true
+
+            });
+        };
         $scope.makevoiceanddisplay=function(){
+
             if(($scope.playlist.length-1)>=$scope.callingindex){
+
 
                 var item=$scope.playlist[$scope.callingindex];
                 //var text="请 "+item.showno+item.patname+" 到"+item.roomname+"机房门口等候检查";
-                var text=["请 "+item.showno,item.patname," 到"+item.roomname+"诊室等候问诊"];
+                var text=["请 "+item.hzxh,item.hzxm," 到"+item.zsmc+"诊室等候问诊"];
+                console.log(text);
+
+                $scope.showcallmsg(item);
+                $scope.timer=$interval(function(){
+                    $ionicLoading.hide();
+
+                   $timeout(function(){
+                       $scope.showcallmsg(item);
+
+                   },1000);
+                },3500)
+
 
                 $scope.playvoice(text);
 
 
 
             }else{
-                me.isplaying=false;
+                $scope.isplaying=false;
                 /*me.isplaying=false;
                  me.playlist=[];*/
                 /*navigator.speech.removeEventListener("SpeakCompleted",function(){});
@@ -93,12 +123,12 @@ angular.module('app.controllers')
         };
 
         $scope.makeSpeak=function(data){
-            $scope.playlist.concat(data);
+            $scope.playlist=$scope.playlist.concat(data);
             if(!$scope.isplaying){
                 $scope.isplaying=true;
                 $scope.makevoiceanddisplay();
             }
-          console.log(data);
+          //console.log(data);
         };
 
 
