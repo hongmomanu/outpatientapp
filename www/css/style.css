@@ -15,10 +15,20 @@
 }
 .myList{
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    height: 100px;
+
     background-color :lightskyblue;
 
 }
+.ion-list-viewport{
+    max-height: 100%;
+    overflow:hidden;
+
+    border-bottom: solid 1px #ddd;
+
+}
+
  .item-content {
     background-color: lightskyblue ;
 }
@@ -26,12 +36,15 @@
     background-color :lightskyblue;
 
 }
-
+.scrolldiv{
+    height: 370px;
+}
 .col{
     /*background-color:white !important;*/
     border:thin solid #CCFFFF;
     text-align:center !important;
 }
+
 .scroll{
     height: 100% !important;
     /*background:red;*/
