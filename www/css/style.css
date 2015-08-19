@@ -75,3 +75,23 @@
     -ms-flex: 0 1 50% !important;
     flex: 0 1 50% !important;
 }
+.oneflex {
+    -webkit-box-flex: 0 !important;
+    -moz-box-flex: 0 !important;
+    -webkit-flex: 0 1 100% !important;
+    -ms-flex: 0 1 100% !important;
+    flex: 0 1 100% !important;
+}
+.scroll{
+    height:100% !important
+}
+.scroll-view{
+    position: absolute;
+    line-height: normal;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+

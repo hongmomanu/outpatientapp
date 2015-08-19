@@ -16,5 +16,22 @@ angular.module('starter', ['ionic', 'app.directives', 'app.services', 'app.contr
       StatusBar.styleDefault();
     }
   });
-});
+}).config(function($stateProvider, $urlRouterProvider) {
+      $stateProvider
+          .state('app', {
+            url: '/tip',
+            templateUrl: 'templates/tip.html',
+            controller: 'initTip'
+          })
+
+          .state('index', {
+            url: '/index',
+            //abstract: true,
+            templateUrl: 'templates/index.html',
+            controller: 'initController'
+          });
+
+      // if none of the above states are matched, use this as the fallback
+      $urlRouterProvider.otherwise('/tip');
+    });
 
