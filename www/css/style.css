@@ -29,14 +29,16 @@
 
 }
 
- .item-content {
+.item-content {
     background-color: lightskyblue ;
 }
 .mygrid{
     background-color :lightskyblue;
 
 }
-
+.scrolldiv{
+    height: 370px;
+}
 .col{
     /*background-color:white !important;*/
     border:thin solid #CCFFFF;

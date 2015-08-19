@@ -39,8 +39,12 @@ angular.module('app.controllers')
                     $timeout(function(){
                         if(res.type=="bigscreendata"){
                             if(res.data.length>0)$state.go('index');
+                            else $state.go('tip');
+
                             for(var i=0;i<res.data.length;i++){
+
                                 $scope["data"+(i+1)]=res.data[i];
+
                             }
                         }else if(res.type=="callpatient"){
                             $scope.makeSpeak(res.data);
@@ -48,8 +52,10 @@ angular.module('app.controllers')
                         }else if(res.type=="changeroom"){
                             $scope.configdata.areanum=res.data.newno;
                             $scope.configdata.areaname=res.data.newname;
-                            localStorage.configdata=JSON.stringify(configdata);
-                            window.location.reload();
+                            localStorage.configdata=JSON.stringify($scope.configdata);
+                            //$state.go('index');
+                            //window.location.reload();
+                            window.location.href=""
 
                         }else if(res.type=='firetip'){
 
@@ -72,13 +78,14 @@ angular.module('app.controllers')
                         type:"mainscreen",
                         content: areanum
                     }));
-                    $state.go('tip');
+
                 };
 
 
             }
             //init websocket;
             websocketInit();
+            $state.go('tip');
 
         });
     })
