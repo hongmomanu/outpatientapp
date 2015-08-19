@@ -2,7 +2,7 @@
  * Created by jack on 15-8-14.
  */
 angular.module('app.controllers')
-    .run(function($rootScope,$timeout){
+    .run(function($rootScope,$timeout,$state){
         //var hello = testFactory.Hello();
         console.log("hello");
         //console.log($rootScope);
@@ -30,18 +30,19 @@ angular.module('app.controllers')
 
 
                 socket = new WebSocket(url);
+
                 socket.onmessage = function(event) {
                     var res=JSON.parse(event.data);
 
-                    //console.log(res);
+                    console.log(res);
 
                     $timeout(function(){
                         if(res.type=="bigscreendata"){
+                            if(res.data.length>0)$state.go('index');
                             for(var i=0;i<res.data.length;i++){
                                 $scope["data"+(i+1)]=res.data[i];
                             }
                         }else if(res.type=="callpatient"){
-
                             $scope.makeSpeak(res.data);
 
                         }else if(res.type=="changeroom"){
@@ -49,6 +50,11 @@ angular.module('app.controllers')
                             $scope.configdata.areaname=res.data.newname;
                             localStorage.configdata=JSON.stringify(configdata);
                             window.location.reload();
+
+                        }else if(res.type=='firetip'){
+
+                            console.log('firetip');
+                            $rootScope.$broadcast('firetip', $scope,res);
 
                         }
                     },0);
@@ -66,11 +72,13 @@ angular.module('app.controllers')
                         type:"mainscreen",
                         content: areanum
                     }));
+                    $state.go('tip');
                 };
 
 
             }
             //init websocket;
             websocketInit();
+
         });
     })

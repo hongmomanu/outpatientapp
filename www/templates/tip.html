@@ -9,18 +9,7 @@
     <ion-content>
 
         <ion-scroll  zooming="false">
-            <div  class="scroll-view"><marquee height="100%" direction=up align=middle  scrollamount=2>
-                <div style="text-align: center;height: 100%;padding: 20px;font-size: xx-large;">
-                    12121212<br>12121212<br>
-                    12121212<br>
-                    12121212<br>
-                    12121212<br>12121212<br>
-                    12121212<br>
-                    12121212<br>
-                    12121212<br>
-
-                </div>
-
+            <div   class="my-scroll-view"><marquee ng-bind-html="renderHtml(tip)" height="100%" direction=up align=middle  scrollamount=2>
 
             </marquee></div>
 

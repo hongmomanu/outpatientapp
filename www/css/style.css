@@ -15,8 +15,8 @@
 }
 .myList{
     width: 100%;
-    /*height: 100%;*/
-    height: 100px;
+    height: 100%;
+    /*height: 100px;*/
 
     background-color :lightskyblue;
 
@@ -36,9 +36,7 @@
     background-color :lightskyblue;
 
 }
-.scrolldiv{
-    height: 370px;
-}
+
 .col{
     /*background-color:white !important;*/
     border:thin solid #CCFFFF;
@@ -75,23 +73,15 @@
     -ms-flex: 0 1 50% !important;
     flex: 0 1 50% !important;
 }
-.oneflex {
-    -webkit-box-flex: 0 !important;
-    -moz-box-flex: 0 !important;
-    -webkit-flex: 0 1 100% !important;
-    -ms-flex: 0 1 100% !important;
-    flex: 0 1 100% !important;
-}
-.scroll{
-    height:100% !important
-}
-.scroll-view{
-    position: absolute;
+
+
+.my-scroll-view{
+    /*position: absolute;*/
     line-height: normal;
-    top: 0px;
+    /*top: 0px;
     bottom: 0px;
     left: 0px;
-    right: 0px;
+    right: 0px;*/
 }
 
 

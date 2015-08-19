@@ -18,7 +18,7 @@ angular.module('starter', ['ionic', 'app.directives', 'app.services', 'app.contr
   });
 }).config(function($stateProvider, $urlRouterProvider) {
       $stateProvider
-          .state('app', {
+          .state('tip', {
             url: '/tip',
             templateUrl: 'templates/tip.html',
             controller: 'initTip'
@@ -32,6 +32,6 @@ angular.module('starter', ['ionic', 'app.directives', 'app.services', 'app.contr
           });
 
       // if none of the above states are matched, use this as the fallback
-      $urlRouterProvider.otherwise('/tip');
+      $urlRouterProvider.otherwise('/index');
     });
 

@@ -2,7 +2,7 @@
  * Created by jack on 15-8-14.
  */
 angular.module('app.controllers')
-    .controller('initController', function ($scope, $interval, $timeout, $ionicModal, $rootScope, $ionicLoading) {
+    .controller('initController', function ($scope,$state, $interval, $timeout, $ionicModal, $rootScope, $ionicLoading) {
         if (!localStorage.totaltimes)localStorage.totaltimes = 1;
         $scope.socket = null;
         $scope.speaktimes = 0;
