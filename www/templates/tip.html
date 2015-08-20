@@ -1,6 +1,7 @@
 <ion-pane>
     <ion-header-bar class="bar-stable bar bar-positive" align-title="center" >
         <h1 class="title myTitle">{{configdata.areaname}}</h1>
+
         <!--<button class="button button-icon icon ion-android-menu"
                 ng-click="configmodal.show()"
                 side="right" >
@@ -9,6 +10,14 @@
     <ion-content>
 
         <ion-scroll  zooming="false">
+            <div><ul class="clockul">
+                <li class="clockulli" id="hours"> </li>
+                <li class="clockulli" id="point">:</li>
+                <li class="clockulli" id="min"> </li>
+                <li class="clockulli" id="point">:</li>
+                <li class="clockulli" id="sec"> </li>
+            </ul></div>
+
             <div   class="my-scroll-view"><marquee ng-bind-html="renderHtml(tip)" height="100%" direction=up align=middle  scrollamount=2>
 
             </marquee></div>
