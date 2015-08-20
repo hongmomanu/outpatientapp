@@ -1,6 +1,7 @@
 /**
  * Created by jack on 15-8-14.
  */
+var remoteloaded=true;
 angular.module('app.controllers')
     .controller('initController', function ($scope,$state, $interval, $timeout, $ionicModal, $rootScope, $ionicLoading) {
         if (!localStorage.totaltimes)localStorage.totaltimes = 1;
