@@ -11,6 +11,18 @@ angular.module('app.controllers')
             //$scope.configmodal.show();
             var socket=null;
 
+
+            var makeautostart=function(){
+                try{
+                    cordova.plugins.autoStart.enable();
+                }catch(e){
+
+                }finally{
+
+                }
+            }
+            makeautostart();
+
             var websocketInit=function(){
                 if(!$scope.configdata.serverurl)$scope.configdata.serverurl=localStorage.serverurl;
                 var url=$scope.configdata.serverurl;
