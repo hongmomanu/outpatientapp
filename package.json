@@ -17,7 +17,8 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
-    "com.rjfun.cordova.plugin.iflyspeech"
+    "com.rjfun.cordova.plugin.iflyspeech",
+    "com.tonikorin.cordova.plugin.autostart"
   ],
   "cordovaPlatforms": []
 }

@@ -35,6 +35,8 @@ angular.module('app.controllers')
                 socket.onmessage = function(event) {
                     var res=JSON.parse(event.data);
 
+                    //alert(11);
+
                     console.log(res);
 
                     $timeout(function(){
@@ -48,6 +50,7 @@ angular.module('app.controllers')
 
                             }
                         }else if(res.type=="callpatient"){
+                            $state.go('index');
                             $scope.makeSpeak(res.data);
 
                         }else if(res.type=="changeroom"){
@@ -63,6 +66,8 @@ angular.module('app.controllers')
                             console.log('firetip');
                             $rootScope.$broadcast('firetip', $scope,res);
 
+                        }else if(res.type=='freshsystem'){
+                            window.location.href="";
                         }
                     },0);
 
