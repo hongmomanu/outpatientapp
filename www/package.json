@@ -1,0 +1,9 @@
+{
+  "name": "nw-outpatientapp",
+  "main": "index.html",
+  "window": {
+    "title": "outpatientapp",
+    "toolbar": true
+
+  }
+}

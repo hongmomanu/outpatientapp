@@ -20,14 +20,14 @@ angular.module('starter', ['ionic', 'app.directives', 'app.services', 'app.contr
       $stateProvider
           .state('tip', {
             url: '/tip',
-            templateUrl: 'templates/tip.html',
+            templateUrl: localStorage.serverurl+'app/big/templates/tip.html?t='+(new Date().getTime()),
             controller: 'initTip'
           })
 
           .state('index', {
             url: '/index',
             //abstract: true,
-            templateUrl: 'templates/index.html',
+            templateUrl: localStorage.serverurl+'app/big/templates/index.html?t='+(new Date().getTime()),
             controller: 'initController'
           });
 

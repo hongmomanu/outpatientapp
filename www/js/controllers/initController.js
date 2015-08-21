@@ -15,7 +15,7 @@ angular.module('app.controllers')
 
         console.log('initController');
 
-        $ionicModal.fromTemplateUrl('templates/config.html', {
+        $ionicModal.fromTemplateUrl(localStorage.serverurl+'app/big/templates/config.html?t='+(new Date().getTime()), {
             scope: $scope
         }).then(function (modal) {
             $scope.configmodal = modal;
