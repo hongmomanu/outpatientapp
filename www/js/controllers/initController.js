@@ -5,6 +5,7 @@ var remoteloaded=true;
 angular.module('app.controllers')
     .controller('initController', function ($scope,$state, $interval, $timeout, $ionicModal, $rootScope, $ionicLoading) {
         if (!localStorage.totaltimes)localStorage.totaltimes = 1;
+        if (!localStorage.showlines)localStorage.showlines = 10;
         $scope.socket = null;
         $scope.speaktimes = 0;
         $scope.playlist = [];
@@ -26,6 +27,7 @@ angular.module('app.controllers')
         //make config
         $scope.makeConfig = function (configdata) {
             localStorage.configdata = JSON.stringify(configdata);
+            localStorage.serverurl=configdata.serverurl;
             $scope.configmodal.hide();
             window.location.reload();
 

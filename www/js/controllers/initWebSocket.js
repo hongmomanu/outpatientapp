@@ -24,7 +24,8 @@ angular.module('app.controllers')
             makeautostart();
 
             var websocketInit=function(){
-                if(!$scope.configdata.serverurl)$scope.configdata.serverurl=localStorage.serverurl;
+                //if(!$scope.configdata.serverurl)$scope.configdata.serverurl=localStorage.serverurl;
+                $scope.configdata.serverurl=localStorage.serverurl;
                 var url=$scope.configdata.serverurl;
                 var areanum=$scope.configdata.areanum;
                 if(!url||url==""){
@@ -47,19 +48,18 @@ angular.module('app.controllers')
                 socket.onmessage = function(event) {
                     var res=JSON.parse(event.data);
 
-                    //alert(11);
-
-                    console.log(res);
-
                     $timeout(function(){
                         if(res.type=="bigscreendata"){
                             if(res.data.length>0)$state.go('index');
                             else $state.go('tip');
 
-                            for(var i=0;i<res.data.length;i++){
+                            for(var i=0;i<8;i++){
 
-                                $scope["data"+(i+1)]=res.data[i];
-
+                                if(i<res.data.length){
+                                    res.data[i].data=res.data[i].data.slice(0,localStorage.showlines);
+                                    $scope["data"+(i+1)]=res.data[i];
+                                }
+                                else $scope["data"+(i+1)]=[];
                             }
                         }else if(res.type=="callpatient"){
                             $state.go('index');
@@ -75,11 +75,13 @@ angular.module('app.controllers')
 
                         }else if(res.type=='firetip'){
 
-                            console.log('firetip');
                             $rootScope.$broadcast('firetip', $scope,res);
 
                         }else if(res.type=='freshsystem'){
                             window.location.href="";
+                        }
+                        else if(res.type=='fireprop'){
+                            localStorage[res.name]=res.value;
                         }
                     },0);
 
