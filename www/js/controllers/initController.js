@@ -93,7 +93,7 @@ angular.module('app.controllers')
 
             });
             $timeout(function () {
-                $('#showmsg').animate({fontSize:'7em'},'slow')
+                $('#showmsg').animate({fontSize:'7em'},'slow');
             }, 100);
 
         };
