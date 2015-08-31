@@ -1,276 +1,278 @@
 
-    <ion-header-bar class="bar-stable bar bar-positive" align-title="center" >
-        <h1 class="title myTitle">{{configdata.areaname}}</h1>
-        <button class="button button-icon icon ion-android-menu"
-                ng-click="configmodal.show()"
-                side="right" >
-        </button>
-    </ion-header-bar>
+<ion-header-bar class="bar-stable bar bar-positive" align-title="center" >
+    <h1 class="title myTitle">{{configdata.areaname}}</h1>
+    <button class="button button-icon icon ion-android-menu"
+            ng-click="configmodal.show()"
+            side="right" >
+    </button>
+</ion-header-bar>
 
+    <ion-content >
 
-    <ion-content>
+        <ion-slide-box   slide-interval="8000"  auto-play="true" >
 
-        <ion-slide-box slide-interval="8000"  auto-play="true" >
+            <ion-slide  class="items" >
 
-            <ion-slide>
-                <div >
-                    <div class="row">
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data1.title2}}&nbsp;<br>&nbsp;{{data1.title}}&nbsp;</button>
+                <div class="row">
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data1.title2}}&nbsp;<br>&nbsp;{{data1.title}}&nbsp;</button>
 
-                            <div class="scrolldiv">
-                                <ion-scroll  zooming="true" class="ion-list-viewport">
-                                    <ion-list >
-                                        <ion-item ng-repeat="item in data1.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
+                        <div class="scrolldiv">
+                            <ion-scroll  zooming="true" class="ion-list-viewport">
+                                <ion-list >
+                                    <ion-item ng-repeat="item in data1.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                                </ion-scroll>
-                            </div>
-
-
-
+                            </ion-scroll>
                         </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data2.title2}}&nbsp;<br>&nbsp;{{data2.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list  >
-                                        <ion-item  ng-repeat="item in data2.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
 
-                                </ion-scroll>
 
-                            </div>
-                        </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data3.title2}}&nbsp;<br>&nbsp;{{data3.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data3.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
 
-                                </ion-scroll>
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data2.title2}}&nbsp;<br>&nbsp;{{data2.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list  >
+                                    <ion-item  ng-repeat="item in data2.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                            </div>
-
-                        </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data4.title2}}&nbsp;<br>&nbsp;{{data4.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list  >
-                                        <ion-item  ng-repeat="item in data4.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
-
-                                </ion-scroll>
-
-                            </div>
+                            </ion-scroll>
 
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data5.title2}}&nbsp;<br>&nbsp;{{data5.title}}&nbsp;</button>
-                            <div class="scrolldiv" >
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data5.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data3.title2}}&nbsp;<br>&nbsp;{{data3.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data3.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                                </ion-scroll>
-
-                            </div>
+                            </ion-scroll>
 
                         </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data6.title2}}&nbsp;<br>&nbsp;{{data6.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data6.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
 
-                                </ion-scroll>
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data4.title2}}&nbsp;<br>&nbsp;{{data4.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list  >
+                                    <ion-item  ng-repeat="item in data4.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                            </div>
-
-                        </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data7.title2}}&nbsp;<br>&nbsp;{{data7.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data7.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
-
-                                </ion-scroll>
-                            </div>
+                            </ion-scroll>
 
                         </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data8.title2}}&nbsp;<br>&nbsp;{{data8.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data8.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
 
-                                </ion-scroll>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data5.title2}}&nbsp;<br>&nbsp;{{data5.title}}&nbsp;</button>
+                        <div class="scrolldiv" >
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data5.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                            </div>
+                            </ion-scroll>
 
                         </div>
+
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data6.title2}}&nbsp;<br>&nbsp;{{data6.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data6.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
+
+                            </ion-scroll>
+
+                        </div>
+
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data7.title2}}&nbsp;<br>&nbsp;{{data7.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data7.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
+
+                            </ion-scroll>
+                        </div>
+
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data8.title2}}&nbsp;<br>&nbsp;{{data8.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data8.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
+
+                            </ion-scroll>
+
+                        </div>
+
                     </div>
                 </div>
             </ion-slide>
 
-            <ion-slide>
-                <div >
-                    <div class="row">
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data9.title2}}&nbsp;<br>&nbsp;{{data9.title}}&nbsp;</button>
+            <ion-slide   class="items">
+                <div class="row">
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data9.title2}}&nbsp;<br>&nbsp;{{data9.title}}&nbsp;</button>
 
-                            <div class="scrolldiv">
-                                <ion-scroll  zooming="true" class="ion-list-viewport">
-                                    <ion-list >
-                                        <ion-item ng-repeat="item in data9.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
+                        <div class="scrolldiv">
+                            <ion-scroll  zooming="true" class="ion-list-viewport">
+                                <ion-list >
+                                    <ion-item ng-repeat="item in data9.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                                </ion-scroll>
-                            </div>
-
-
-
+                            </ion-scroll>
                         </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data10.title2}}&nbsp;<br>&nbsp;{{data10.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list  >
-                                        <ion-item  ng-repeat="item in data10.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
 
-                                </ion-scroll>
 
-                            </div>
-                        </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data11.title2}}&nbsp;<br>&nbsp;{{data11.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data11.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
 
-                                </ion-scroll>
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data10.title2}}&nbsp;<br>&nbsp;{{data10.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list  >
+                                    <ion-item  ng-repeat="item in data10.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                            </div>
-
-                        </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data12.title2}}&nbsp;<br>&nbsp;{{data12.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list  >
-                                        <ion-item  ng-repeat="item in data12.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
-
-                                </ion-scroll>
-
-                            </div>
+                            </ion-scroll>
 
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data13.title2}}&nbsp;<br>&nbsp;{{data13.title}}&nbsp;</button>
-                            <div class="scrolldiv" >
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data13.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data11.title2}}&nbsp;<br>&nbsp;{{data11.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data11.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                                </ion-scroll>
-
-                            </div>
+                            </ion-scroll>
 
                         </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data14.title2}}&nbsp;<br>&nbsp;{{data14.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data14.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
 
-                                </ion-scroll>
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data12.title2}}&nbsp;<br>&nbsp;{{data12.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list  >
+                                    <ion-item  ng-repeat="item in data12.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                            </div>
-
-                        </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data15.title2}}&nbsp;<br>&nbsp;{{data15.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data15.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
-
-                                </ion-scroll>
-                            </div>
+                            </ion-scroll>
 
                         </div>
-                        <div class="col  mygrid">
-                            <button class="button myButton">&nbsp;{{data16.title2}}&nbsp;<br>&nbsp;{{data16.title}}&nbsp;</button>
-                            <div class="scrolldiv">
-                                <ion-scroll class="ion-list-viewport">
-                                    <ion-list   >
-                                        <ion-item  ng-repeat="item in data16.data" ng-class="'listitem'">
-                                            {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
-                                        </ion-item>
-                                    </ion-list>
 
-                                </ion-scroll>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data13.title2}}&nbsp;<br>&nbsp;{{data13.title}}&nbsp;</button>
+                        <div class="scrolldiv" >
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data13.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
 
-                            </div>
+                            </ion-scroll>
 
                         </div>
+
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data14.title2}}&nbsp;<br>&nbsp;{{data14.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data14.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
+
+                            </ion-scroll>
+
+                        </div>
+
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data15.title2}}&nbsp;<br>&nbsp;{{data15.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data15.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
+
+                            </ion-scroll>
+                        </div>
+
+                    </div>
+                    <div class="col  mygrid">
+                        <button class="button myButton">&nbsp;{{data16.title2}}&nbsp;<br>&nbsp;{{data16.title}}&nbsp;</button>
+                        <div class="scrolldiv">
+                            <ion-scroll class="ion-list-viewport">
+                                <ion-list   >
+                                    <ion-item  ng-repeat="item in data16.data" ng-class="'listitem'">
+                                        {{item.hzxh.length==1?"&nbsp;&nbsp;":""}}{{item.hzxh}} {{item.hzxm}} {{item.hzxm.length==2?"&nbsp;&nbsp;":""}}
+                                    </ion-item>
+                                </ion-list>
+
+                            </ion-scroll>
+
+                        </div>
+
                     </div>
                 </div>
             </ion-slide>
         </ion-slide-box>
 
-
     </ion-content>
+
+
+
+
+
+
+
 

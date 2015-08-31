@@ -83,7 +83,7 @@ angular.module('app.controllers')
 
         $scope.showcallmsg = function (item) {
             $ionicLoading.show({
-                template: '<div style="font-size: 80px;line-height: normal;text-align: left;">' + '<a style="font-weight: bold">序号:' + item.hzxh + '</a>'
+                template: '<div id="showmsg" style="font-size: 10px; line-height: normal;text-align: left;">' + '<a style="font-weight: bold">序号:' + item.hzxh + '</a>'
                 + '<br><a style="font-weight: bold">姓名:' + item.hzxm + '</a>'
                 + '<br><a style="font-weight: bold">诊室:' + item.zsmc + '</a>'
                 + '</div>',
@@ -92,6 +92,10 @@ angular.module('app.controllers')
                 showBackdrop: false
 
             });
+            $timeout(function () {
+                $('#showmsg').animate({fontSize:'7em'},'slow')
+            }, 100);
+
         };
         $scope.makevoiceanddisplay = function () {
 
