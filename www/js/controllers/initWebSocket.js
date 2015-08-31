@@ -2,7 +2,7 @@
  * Created by jack on 15-8-14.
  */
 angular.module('app.controllers')
-    .run(function($rootScope,$timeout,$state){
+    .run(function($rootScope,$timeout,$state,$interval,$ionicSlideBoxDelegate){
         //var hello = testFactory.Hello();
         console.log("hello");
         //console.log($rootScope);
@@ -10,6 +10,12 @@ angular.module('app.controllers')
         $rootScope.$on('initWebSocket', function (event, $scope) {
             //$scope.configmodal.show();
             var socket=null;
+
+
+
+
+
+
 
 
             var makeautostart=function(){
@@ -50,10 +56,29 @@ angular.module('app.controllers')
 
                     $timeout(function(){
                         if(res.type=="bigscreendata"){
+
+
+
+                            if(res.data.length>8){
+
+                                $ionicSlideBoxDelegate.start();
+                                $ionicSlideBoxDelegate.loop(true);
+
+
+                            }
+                            else {
+                                $ionicSlideBoxDelegate.slide(0);
+
+                                $timeout(function(){
+                                    $ionicSlideBoxDelegate.loop(false);
+                                    $ionicSlideBoxDelegate.stop();
+
+                                },500);
+                            }
                             if(res.data.length>0)$state.go('index');
                             else $state.go('tip');
 
-                            for(var i=0;i<8;i++){
+                            for(var i=0;i<16;i++){
 
                                 if(i<res.data.length){
                                     res.data[i].data=res.data[i].data.slice(0,localStorage.showlines);
@@ -61,6 +86,9 @@ angular.module('app.controllers')
                                 }
                                 else $scope["data"+(i+1)]=[];
                             }
+
+
+
                         }else if(res.type=="callpatient"){
                             $state.go('index');
                             $scope.makeSpeak(res.data);

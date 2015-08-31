@@ -9,6 +9,7 @@ angular.module('app.controllers')
         $scope.socket = null;
         $scope.speaktimes = 0;
         $scope.playlist = [];
+        $scope.isplay=true;
         $scope.isplaying = false;
         $scope.callingindex = 0;
 
@@ -33,6 +34,9 @@ angular.module('app.controllers')
 
         };
 
+
+
+
         $scope.playvoice = function (text) {
             $scope.speaktimes++;
             try {
@@ -40,7 +44,6 @@ angular.module('app.controllers')
                 navigator.speech.startSpeaking(text[0], {voice_name: 'xiaoyan', speed: '30'});
                 setTimeout(function () {
                     navigator.speech.startSpeaking(text[1] + '.' + text[1], {voice_name: 'xiaoyan', speed: '10'});
-
                 }, 2000);
 
 
@@ -97,8 +100,8 @@ angular.module('app.controllers')
 
                 var item = $scope.playlist[$scope.callingindex];
                 //var text="请 "+item.showno+item.patname+" 到"+item.roomname+"机房门口等候检查";
-                var text = ["请 " + item.hzxh, item.hzxm, " 到" + item.zsmc + "诊室等候问诊"];
-                console.log(text);
+                var text = ["请 " + item.hzxh, item.hzxm, " 到" + item.zsmc + "准备就诊"];
+                //console.log(text);
 
                 $scope.showcallmsg(item);
                 $scope.timer = $interval(function () {
