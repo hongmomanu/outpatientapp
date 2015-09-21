@@ -9,6 +9,7 @@ angular.module('app.controllers')
         $scope.socket = null;
         $scope.speaktimes = 0;
         $scope.playlist = [];
+
         $scope.isplay=true;
         $scope.isplaying = false;
         $scope.callingindex = 0;
@@ -36,7 +37,10 @@ angular.module('app.controllers')
 
 
 
+        $scope.playTextVoice=function(text,speed){
+            navigator.speech.startSpeaking(text, {voice_name: 'xiaoyan', speed: speed});
 
+        };
         $scope.playvoice = function (text) {
             $scope.speaktimes++;
             try {

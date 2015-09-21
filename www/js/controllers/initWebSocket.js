@@ -110,6 +110,14 @@ angular.module('app.controllers')
                         }
                         else if(res.type=='fireprop'){
                             localStorage[res.name]=res.value;
+                        }else if(res.type=='servertime'){
+                            //$scope.servertime=res.time;
+                            console.log(res);
+                            $rootScope.$broadcast('fireservertime', $scope,res);
+
+                        }else if(res.type=='playvoice'){
+                            $scope.playTextVoice(res.content,res.speed);
+
                         }
                     },0);
 

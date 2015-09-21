@@ -7,6 +7,8 @@ angular.module('app.controllers')
         console.log("init tip");
         $scope.configdata = localStorage.configdata ? JSON.parse(localStorage.configdata) : {};
 
+        $scope.servertime = 100;
+
         $scope.tip=localStorage.tip?localStorage.tip:'<div style="font-size: xx-large;text-align: center">请输入提示广播内容</div>';
 
         $scope.renderHtml = function (htmlCode) {
@@ -18,21 +20,27 @@ angular.module('app.controllers')
 
         setInterval( function() {
             // Create a newDate() object and extract the seconds of the current time on the visitor's
-            var seconds = new Date().getSeconds();
+            var now=new Date();
+            now.setTime(now.getTime()+$scope.servertime);
+            var seconds = now.getSeconds();
             // Add a leading zero to seconds value
             $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
         },1000);
 
         setInterval( function() {
             // Create a newDate() object and extract the minutes of the current time on the visitor's
-            var minutes = new Date().getMinutes();
+            var now=new Date();
+            now.setTime(now.getTime()+$scope.servertime);
+            var minutes = now.getMinutes();
             // Add a leading zero to the minutes value
             $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
         },1000);
 
         setInterval( function() {
             // Create a newDate() object and extract the hours of the current time on the visitor's
-            var hours = new Date().getHours();
+            var now=new Date();
+            now.setTime(now.getTime()+$scope.servertime);
+            var hours = now.getHours();
             // Add a leading zero to the hours value
             $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
         }, 1000);
@@ -45,6 +53,14 @@ angular.module('app.controllers')
             //alert(111);
             localStorage.tip=res.data;
             $scope.tip=res.data;
+
+        });
+        $rootScope.$on('fireservertime', function (event, mainscope,res) {
+
+            //alert(111);
+
+            $scope.servertime=(new Date(res.time)).getTime()-(new Date()).getTime();
+
 
         });
 
