@@ -5,7 +5,7 @@ var remoteloaded=true;
 angular.module('app.controllers')
     .controller('initController', function ($scope,$state, $interval, $timeout, $ionicModal, $rootScope, $ionicLoading) {
         if (!localStorage.totaltimes)localStorage.totaltimes = 1;
-        if (!localStorage.showlines)localStorage.showlines = 10;
+        if (!localStorage.showlines)localStorage.showlines = 3;
         $scope.socket = null;
         $scope.speaktimes = 0;
         $scope.playlist = [];
@@ -140,6 +140,16 @@ angular.module('app.controllers')
                 $scope.makevoiceanddisplay();
             }
             //console.log(data);
+        };
+        $scope.makeroomtitles = function (data) {
+            console.log(data);
+            for(var i=0;i<data.length;i++){
+                if(!$scope["data"+data[i].room_order]){
+                    $scope["data"+data[i].room_order]={};
+                    $scope["data"+data[i].room_order].title2=data[i].room_name;
+                    $scope["data"+data[i].room_order].title=data[i].room_name_2;
+                }
+            }
         };
 
 

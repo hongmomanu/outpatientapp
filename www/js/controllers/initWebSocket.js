@@ -29,11 +29,16 @@ angular.module('app.controllers')
             }
             makeautostart();
 
+
+
             var websocketInit=function(){
                 //if(!$scope.configdata.serverurl)$scope.configdata.serverurl=localStorage.serverurl;
                 $scope.configdata.serverurl=localStorage.serverurl;
                 var url=$scope.configdata.serverurl;
                 var areanum=$scope.configdata.areanum;
+
+
+
                 if(!url||url==""){
                     //Ext.Msg.alert('提示','服务地址为空');
                     $scope.configmodal.show();
@@ -49,6 +54,8 @@ angular.module('app.controllers')
                 url=url.replace("http","ws");
 
 
+
+
                 socket = new WebSocket(url);
 
                 socket.onmessage = function(event) {
@@ -59,9 +66,9 @@ angular.module('app.controllers')
 
 
 
-                            if(res.data.length>8){
+                            if(res.data.length>0&&res.data[res.data.length-1].roomorder>8){
 
-                                $ionicSlideBoxDelegate.start();
+                                //$ionicSlideBoxDelegate.start();
                                 $ionicSlideBoxDelegate.loop(true);
 
 
@@ -71,22 +78,44 @@ angular.module('app.controllers')
 
                                 $timeout(function(){
                                     $ionicSlideBoxDelegate.loop(false);
-                                    $ionicSlideBoxDelegate.stop();
+                                    //$ionicSlideBoxDelegate.stop();
 
                                 },500);
                             }
 
-                            if(res.data.length>0)$state.go('index');
-                            else $state.go('tip');
+                            var now=new Date();
+                            now.setTime(now.getTime()+parseInt(localStorage.servertime));
+                            var hours=now.getHours();
 
-                            for(var i=0;i<16;i++){
+
+                            //console.log(res.data);
+
+
+
+                            if(res.data.length>0||(hours>=8&&hours<12)||(hours>=14&&hours<17))$state.go('index');
+                            else  $state.go('tip');
+
+                            /*for(var i=0;i<16;i++){
 
                                 if(i<res.data.length){
                                     res.data[i].data=res.data[i].data.slice(0,localStorage.showlines);
-                                    $scope["data"+(i+1)]=res.data[i];
+                                    //$scope["data"+(i+1)]=res.data[i];
+                                    $scope["data"+res.data[i].data[0].roomorder]=res.data[i];
                                 }
-                                else $scope["data"+(i+1)]=[];
+                                //else $scope["data"+(i+1)]=[];
+                                else  $scope["data"+res.data[i].data[0].roomorder]=[];
+                            }*/
+
+                            /*for(var i=0;i<16;i++){
+                                 $scope["data"+(i+1)]=[];
+                            }*/
+                            for(var i=0;i<res.data.length;i++){
+
+                                res.data[i].data=res.data[i].data.slice(0,localStorage.showlines);
+                                $scope["data"+res.data[i].roomorder]=res.data[i];
                             }
+
+
 
 
 
@@ -113,11 +142,14 @@ angular.module('app.controllers')
                             localStorage[res.name]=res.value;
                         }else if(res.type=='servertime'){
                             //$scope.servertime=res.time;
-                            console.log(res);
+
                             $rootScope.$broadcast('fireservertime', $scope,res);
 
                         }else if(res.type=='playvoice'){
                             $scope.playTextVoice(res.content,res.speed);
+
+                        }else if(res.type=='getopenedroom'){
+                            $scope.makeroomtitles(res.data);
 
                         }
                     },0);
@@ -135,6 +167,8 @@ angular.module('app.controllers')
                         type:"mainscreen",
                         content: areanum
                     }));
+
+                    $.get(localStorage.serverurl+"firegetopenedroombyarea?area="+areanum);
 
                 };
 
