@@ -87,9 +87,9 @@ angular.module('app.controllers')
 
         $scope.showcallmsg = function (item) {
             $ionicLoading.show({
-                template: '<div id="showmsg" style="font-size: 10px; line-height: normal;text-align: left;">' + '<a style="font-weight: bold">序号:' + item.hzxh + '</a>'
-                + '<br><a style="font-weight: bold">姓名:' + item.hzxm + '</a>'
-                + '<br><a style="font-weight: bold">诊室:' + item.zsmc + '</a>'
+                template: '<div id="showmsg" style="font-size: 10px; line-height: normal;text-align: left;">' + '<a style="font-weight: bold">' + item.hzxh + '</a>'
+                + '<br><a style="font-weight: bold">' + item.hzxm + '</a>'
+                + '<br><a style="font-weight: bold">' + item.zsmc + '</a>'
                 + '</div>',
                 animation: 'fade-in',
                 /*maxWidth: 200,*/

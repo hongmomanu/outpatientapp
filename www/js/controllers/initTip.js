@@ -7,7 +7,7 @@ angular.module('app.controllers')
         console.log("init tip");
         $scope.configdata = localStorage.configdata ? JSON.parse(localStorage.configdata) : {};
 
-        $scope.servertime = 100;
+        $scope.servertime = 0;
 
         $scope.tip=localStorage.tip?localStorage.tip:'<div style="font-size: xx-large;text-align: center">请输入提示广播内容</div>';
 
@@ -18,32 +18,47 @@ angular.module('app.controllers')
             $state.go('index');
         },3000);*/
 
-        setInterval( function() {
-            // Create a newDate() object and extract the seconds of the current time on the visitor's
-            var now=new Date();
-            now.setTime(now.getTime()+$scope.servertime);
-            var seconds = now.getSeconds();
-            // Add a leading zero to seconds value
-            $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
-        },1000);
 
-        setInterval( function() {
-            // Create a newDate() object and extract the minutes of the current time on the visitor's
-            var now=new Date();
-            now.setTime(now.getTime()+$scope.servertime);
-            var minutes = now.getMinutes();
-            // Add a leading zero to the minutes value
-            $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
-        },1000);
 
-        setInterval( function() {
-            // Create a newDate() object and extract the hours of the current time on the visitor's
-            var now=new Date();
-            now.setTime(now.getTime()+$scope.servertime);
-            var hours = now.getHours();
-            // Add a leading zero to the hours value
-            $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
-        }, 1000);
+            $timeout(function(){
+                $interval( function() {
+
+
+                    // Create a newDate() object and extract the seconds of the current time on the visitor's
+                    var now=new Date();
+
+                    now.setTime(now.getTime()+$scope.servertime);
+                    var seconds = now.getSeconds();
+                    // Add a leading zero to seconds value
+                    $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+                },1000);
+
+                $interval( function() {
+                    // Create a newDate() object and extract the minutes of the current time on the visitor's
+                    var now=new Date();
+                    now.setTime(now.getTime()+$scope.servertime);
+                    var minutes = now.getMinutes();
+                    console.log("minutes");
+                    // Add a leading zero to the minutes value
+                    $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+                },1000);
+
+                $interval( function() {
+                    // Create a newDate() object and extract the hours of the current time on the visitor's
+                    var now=new Date();
+                    now.setTime(now.getTime()+$scope.servertime);
+                    var hours = now.getHours();
+                    // Add a leading zero to the hours value
+                    $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+                }, 1000);
+
+            },3000)
+
+
+
+
+
+
 
 
 

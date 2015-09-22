@@ -75,6 +75,7 @@ angular.module('app.controllers')
 
                                 },500);
                             }
+
                             if(res.data.length>0)$state.go('index');
                             else $state.go('tip');
 
