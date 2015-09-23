@@ -71,8 +71,8 @@ angular.module('app.controllers')
                         delete $scope.playlist[$scope.callingindex];
 
                         $scope.callingindex++;
-                        $ionicLoading.hide();
-                        $interval.cancel($scope.timer);
+                        //$ionicLoading.hide();
+                        //$interval.cancel($scope.timer);
                         $scope.makevoiceanddisplay();
                     } else {
                         //tipvoice.removeEventListener('ended',voiceEnd,false);
@@ -87,8 +87,8 @@ angular.module('app.controllers')
 
         $scope.showcallmsg = function (item) {
             $ionicLoading.show({
-                template: '<div id="showmsg" style="font-size: 10px; line-height: normal;text-align: left;">' + '<a style="font-weight: bold">' + item.hzxh + '</a>'
-                + '<br><a style="font-weight: bold">' + item.hzxm + '</a>'
+                template: '<div id="showmsg" style="font-size: 10px; line-height: normal;text-align: center;">' + '<a style="font-weight: bold">' + item.hzxh + '</a>'
+                + '   <a style="font-weight: bold">' + item.hzxm + '</a>'
                 + '<br><a style="font-weight: bold">' + item.zsmc + '</a>'
                 + '</div>',
                 animation: 'fade-in',
@@ -97,8 +97,10 @@ angular.module('app.controllers')
 
             });
             $timeout(function () {
-                $('#showmsg').animate({fontSize:'7em'},'slow');
-            }, 100);
+                $('#showmsg').animate({fontSize:'7em'},'slow').parent().fadeIn(1500).fadeOut(1500).fadeIn(1500).fadeOut(1500).fadeIn(1500).fadeOut(1000,function(){
+                    $ionicLoading.hide();
+                });
+            }, 10);
 
         };
         $scope.makevoiceanddisplay = function () {
@@ -108,17 +110,18 @@ angular.module('app.controllers')
 
                 var item = $scope.playlist[$scope.callingindex];
                 //var text="请 "+item.showno+item.patname+" 到"+item.roomname+"机房门口等候检查";
-                var text = ["请 " + item.hzxh, item.hzxm, " 到" + item.zsmc + "准备就诊"];
+                var affixmsg=item.hzxh.indexOf("回")>=0?"":"号";
+                var text = ["请 " + item.hzxh+affixmsg, item.hzxm, " 到" + item.zsmc + "准备就诊"];
                 //console.log(text);
 
                 $scope.showcallmsg(item);
-                $scope.timer = $interval(function () {
+                /*$scope.timer = $interval(function () {
                     $ionicLoading.hide();
 
                     $timeout(function () {
                         $scope.showcallmsg(item);
                     }, 500);
-                }, 3500)
+                }, 3500)*/
 
                 $scope.playvoice(text);
 
@@ -135,6 +138,7 @@ angular.module('app.controllers')
 
         $scope.makeSpeak = function (data) {
             $scope.playlist = $scope.playlist.concat(data);
+            //console.log(data);
             if (!$scope.isplaying) {
                 $scope.isplaying = true;
                 $scope.makevoiceanddisplay();
@@ -142,13 +146,13 @@ angular.module('app.controllers')
             //console.log(data);
         };
         $scope.makeroomtitles = function (data) {
-            console.log(data);
             for(var i=0;i<data.length;i++){
                 if(!$scope["data"+data[i].room_order]){
                     $scope["data"+data[i].room_order]={};
-                    $scope["data"+data[i].room_order].title2=data[i].room_name;
-                    $scope["data"+data[i].room_order].title=data[i].room_name_2;
                 }
+                $scope["data"+data[i].room_order].title2=data[i].room_name;
+                $scope["data"+data[i].room_order].title=data[i].room_name_2;
+
             }
         };
 

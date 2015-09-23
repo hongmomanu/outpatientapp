@@ -66,7 +66,7 @@ angular.module('app.controllers')
 
 
 
-                            if(res.data.length>0&&res.data[res.data.length-1].roomorder>8){
+                            if(res.data.length>0&&res.data[res.data.length-1].roomorder>8&&res.data[0].roomorder<=8){
 
                                 //$ionicSlideBoxDelegate.start();
                                 $ionicSlideBoxDelegate.loop(true);
@@ -74,7 +74,13 @@ angular.module('app.controllers')
 
                             }
                             else {
-                                $ionicSlideBoxDelegate.slide(0);
+
+                                if(res.data.length>0){
+                                    $ionicSlideBoxDelegate.slide(parseInt((res.data[0].roomorder-1)/8));
+                                }else{
+                                    $ionicSlideBoxDelegate.slide(0);
+                                }
+
 
                                 $timeout(function(){
                                     $ionicSlideBoxDelegate.loop(false);
@@ -106,9 +112,10 @@ angular.module('app.controllers')
                                 else  $scope["data"+res.data[i].data[0].roomorder]=[];
                             }*/
 
-                            /*for(var i=0;i<16;i++){
-                                 $scope["data"+(i+1)]=[];
-                            }*/
+                            for(var i=0;i<16;i++){
+                                if($scope["data"+(i+1)])$scope["data"+(i+1)].data=[];
+                            }
+                            //console.log(res.data);
                             for(var i=0;i<res.data.length;i++){
 
                                 res.data[i].data=res.data[i].data.slice(0,localStorage.showlines);
